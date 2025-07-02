@@ -32,5 +32,5 @@ Authorization Header for Secured GraphDB MCP Server
 If the gateway will communicate with a secured GraphDB MCP server, set the following environment variable to pass an authorization token (e.g., Bearer token or API key) via the Authorization header:
 
 ```bash
-export MCPHUB_AUTHORIZATION_HEADER="Bearer YOUR_TOKEN_HERE"
+export MCP_SERVER_AUTHORIZATION_HEADER="Bearer YOUR_TOKEN_HERE"
 ```
