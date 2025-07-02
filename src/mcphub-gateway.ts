@@ -4,6 +4,7 @@ import EventSource from "eventsource";
 
 // Configuration
 const MCP_SERVER_URL = process.env.MCPHUB_SERVER_URL || "https://server.mcphub.ai/api/mcp";
+const MCP_SERVER_AUTHORIZATION_HEADER: string | null = process.env.MCPHUB_AUTHORIZATION_HEADER ?? null;
 
 const baseUrl = MCP_SERVER_URL;
 const backendUrlSse = `${baseUrl}/sse`;
@@ -33,11 +34,15 @@ class MCPHubGateway {
         debug(`Connecting to SSE endpoint: ${backendUrlSse}`);
 
         return new Promise((resolve, reject) => {
-            this.eventSource = new EventSource(backendUrlSse, {
-                headers: {
-                    'Accept': 'text/event-stream'
-                }
-            });
+            const headers: Record<string, string> = {
+                'Accept': 'text/event-stream',
+            };
+
+            if (MCP_SERVER_AUTHORIZATION_HEADER) {
+                headers['Authorization'] = MCP_SERVER_AUTHORIZATION_HEADER;
+            }
+
+            this.eventSource = new EventSource(backendUrlSse, { headers });
             
             this.eventSource.onopen = () => {
                 debug(`--- SSE backend connected`);
@@ -142,6 +147,14 @@ class MCPHubGateway {
             .filter(msg => msg.trim())
             .map(msg => msg.trim());
 
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json',
+        };
+
+        if (MCP_SERVER_AUTHORIZATION_HEADER) {
+            headers['Authorization'] = MCP_SERVER_AUTHORIZATION_HEADER;
+        }
+
         for (const msgStr of messages) {
             try {
                 const url = `${backendUrlMsg}?sessionId=${this.sessionId}`;
@@ -149,7 +162,7 @@ class MCPHubGateway {
 
                 const response = await fetch(url, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers,
                     body: msgStr
                 });
 

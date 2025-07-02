@@ -1,7 +1,7 @@
 {
-    "name": "@mcphub/gateway",
-    "version": "1.0.1",
-    "description": "MCPHub Gateway for Claude Desktop",
+    "name": "@graphdb-mcphub/gateway",
+    "version": "1.0.2",
+    "description": "MCPHub Gateway for Claude Desktop, supporting Authorization header passthrough.",
     "type": "module",
     "bin": {
       "mcphub-gateway": "./dist/src/mcphub-gateway.js"
