@@ -22,3 +22,15 @@ Install the gateway globally using npm:
 
 ```bash
 npm install -g graphdb-mcphub-gateway
+```
+
+```bash
+export MCP_SERVER_URL=https://your-secured-mcp-server.com/mcp
+```
+
+Authorization Header for Secured GraphDB MCP Server
+If the gateway will communicate with a secured GraphDB MCP server, set the following environment variable to pass an authorization token (e.g., Bearer token or API key) via the Authorization header:
+
+```bash
+export MCPHUB_AUTHORIZATION_HEADER="Bearer YOUR_TOKEN_HERE"
+```
