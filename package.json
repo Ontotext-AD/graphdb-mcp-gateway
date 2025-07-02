@@ -1,5 +1,5 @@
 {
-    "name": "@graphdb-mcphub/gateway",
+    "name": "graphdb-mcphub-gateway",
     "version": "1.0.2",
     "description": "MCPHub Gateway for Claude Desktop, supporting Authorization header passthrough.",
     "type": "module",

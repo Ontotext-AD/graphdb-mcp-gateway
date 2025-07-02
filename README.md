@@ -3,7 +3,7 @@
 > **Forked from [`lightconetech/mcp-gateway`](https://github.com/lightconetech/mcp-gateway)**
 
 > This version adds support for passing an `Authorization` header to the backend MCP server.  
-> Renamed to `@graphdb-mcphub/gateway` to distinguish GraphDB-specific adaptations.
+> Renamed to `graphdb-mcphub-gateway` to distinguish GraphDB-specific adaptations.
 
 A gateway service that bridges the stdio-based Model Context Protocol (MCP) implementation in Claude Desktop with HTTP/SSE-based MCP servers. This solves the protocol compatibility gap since Claude Desktop currently only supports stdio-based MCP servers. See the discussion [here](https://github.com/orgs/modelcontextprotocol/discussions/16).
 
@@ -21,4 +21,4 @@ This fork adds support for passing an `Authorization` header via environment var
 Install the gateway globally using npm:
 
 ```bash
-npm install -g @graphdb-mcphub/gateway
+npm install -g graphdb-mcphub-gateway
