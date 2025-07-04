@@ -3,7 +3,7 @@
 import EventSource from "eventsource";
 
 // Configuration
-const MCP_SERVER_URL = process.env.MCPHUB_SERVER_URL || "https://server.mcphub.ai/api/mcp";
+const MCP_SERVER_URL = process.env.MCPHUB_SERVER_URL ?? "http://localhost:7200/mcp";
 const MCP_SERVER_AUTHORIZATION_HEADER: string | null = process.env.MCPHUB_AUTHORIZATION_HEADER ?? null;
 
 const baseUrl = MCP_SERVER_URL;
