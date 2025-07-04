@@ -24,6 +24,10 @@ Install the gateway globally using npm:
 npm install -g graphdb-mcphub-gateway
 ```
 
+By default, the original gateway connects to the public MCP Hub at https://server.mcphub.ai/api/mcp, which provides access to various pre-configured MCP services.
+
+In this fork, the default endpoint has been changed to http://localhost:7200/mcp, which corresponds to the default GraphDB MCP server URL (assuming GraphDB is running on its default port).
+
 ```bash
 export MCPHUB_SERVER_URL=https://your-secured-mcp-server.com/mcp
 ```
@@ -32,5 +36,5 @@ Authorization Header for Secured GraphDB MCP Server
 If the gateway will communicate with a secured GraphDB MCP server, set the following environment variable to pass an authorization token (e.g., Bearer token or API key) via the Authorization header:
 
 ```bash
-export MCPHUB_AUTHORIZATION_HEADER="Bearer YOUR_TOKEN_HERE"
+export MCPHUB_AUTHORIZATION_HEADER="YOUR_TOKEN_HERE"
 ```
