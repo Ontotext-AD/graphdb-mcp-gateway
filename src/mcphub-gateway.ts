@@ -150,6 +150,7 @@ class MCPHubGateway {
 
         const headers: Record<string, string> = {
             'Content-Type': 'application/json',
+            'User-Agent': 'graphdb-mcp-gateway'
         };
 
         if (MCP_SERVER_AUTHORIZATION_HEADER) {
