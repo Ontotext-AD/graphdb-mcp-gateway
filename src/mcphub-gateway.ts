@@ -36,6 +36,7 @@ class MCPHubGateway {
         return new Promise((resolve, reject) => {
             const headers: Record<string, string> = {
                 'Accept': 'text/event-stream',
+                'User-Agent': 'graphdb-mcp-gateway'
             };
 
             if (MCP_SERVER_AUTHORIZATION_HEADER) {
