@@ -15,6 +15,10 @@ pipeline {
         nodejs 'nodejs-18.9.0'
     }
 
+    environment {
+        NPM_CONFIG_REGISTRY = 'https://registry.npmjs.org/'
+    }
+
     parameters {
         gitParameter name: 'GIT_BRANCH',
             description: 'The Git branch to build',
